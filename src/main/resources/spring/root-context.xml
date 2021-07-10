@@ -30,5 +30,7 @@
 		class="com.honsoft.web.listener.SpringContextRefreshedListener">
 	</bean>
 
-
+	<bean
+		class="com.honsoft.web.listener.ServletContextAwareBean">
+	</bean>
 </beans>
