@@ -1,0 +1,62 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!-- Location of Java @Configuration classes that configure the components 
+		that makeup this application -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/spring/root-context.xml</param-value>
+	</context-param>
+
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.honsoft.web.listener.AppContextAttributeListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.honsoft.web.listener.AppContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.honsoft.web.listener.MyServletRequestListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.honsoft.web.listener.MySessionListener</listener-class>
+	</listener>
+
+
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- contextLoader가 해당 위치의 설정 파일을 읽어, 해당 파일을 dispatcher servlet으로 만든다. -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:/spring/dispatcher-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
+
+
+	<!-- /sales로 시작하는 url 요청을 받아 salesServlet에서 처리한다. -->
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+
+
+
+
+</web-app>
