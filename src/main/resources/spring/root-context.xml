@@ -12,6 +12,8 @@
         http://www.springframework.org/schema/context     
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+<context:annotation-config/>
+
 
 	<bean name="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource">
@@ -23,6 +25,8 @@
 		<property name="password" value="Shoppingnt2021!@" />
 	</bean>
 
+
+	
 	<bean class="com.honsoft.web.listener.ApplicationContextAwareBean">
 	</bean>
 
@@ -32,5 +36,9 @@
 
 	<bean
 		class="com.honsoft.web.listener.ServletContextAwareBean">
+	</bean>
+	
+	<bean
+		class="com.honsoft.web.listener.MyBeanPostProcessor">
 	</bean>
 </beans>
